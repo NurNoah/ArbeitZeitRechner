@@ -1,11 +1,11 @@
 <body id="bdy" class="light-mode" >
     
 <div class="main">
-<input class="abstand" type="text" #kommzeit placeholder="Wann bist du Gekommen  HH:MM" (keyup)="onKeyUp($event, kommzeit.value, pausezeit.value)">
+<input class="abstand" type="text" #kommzeit placeholder="Wann bist du Gekommen  HH:MM" (keyup)="c.onKeyUp($event, kommzeit.value, pausezeit.value)">
 
-<input class="abstand" type="text" #pausezeit placeholder="Pausen Zeit in Minuten" (keyup)="onKeyUp($event, kommzeit.value, pausezeit.value)" >
+<input class="abstand" type="text" #pausezeit placeholder="Pausen Zeit in Minuten" (keyup)="c.onKeyUp($event, kommzeit.value, pausezeit.value)" >
 
-<button id="button1" (click)="berechne(kommzeit.value, pausezeit.value)" (keyup)="onKeyUp($event, kommzeit.value, pausezeit.value)">Berechne</button>
+<button id="button1" (click)="c.berechne(kommzeit.value, pausezeit.value)" (keyup)="c.onKeyUp($event, kommzeit.value, pausezeit.value)">Berechne</button>
 
 <label id="ergblable" class="abstand"></label>
 

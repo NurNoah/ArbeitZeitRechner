@@ -7,17 +7,11 @@ export class DarkmodeserviceService {
   darkmodeIMG = 'assets/img/nightmode.png';
 
   toggleDarkmode() {
-    let body = document.getElementById('bdy') as HTMLLabelElement;
-    let body2 = document.getElementById('bdy2') as HTMLLabelElement;
-
-    let body4 = document.getElementById('bdy4') as HTMLLabelElement;
+    document.getElementById('bdy')?.classList.toggle('dark-mode');
+    document.getElementById('bdy2')?.classList.toggle('dark-mode');
+    document.getElementById('bdy4')?.classList.toggle('dark-mode');
 
     document.querySelector('html')?.classList.toggle('dark-mode');
-
-    body.classList.toggle('dark-mode');
-    body2.classList.toggle('dark-mode');
-
-    body4.classList.toggle('dark-mode');
 
     this.toggledarkmodeimg();
   }
