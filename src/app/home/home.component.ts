@@ -14,3 +14,4 @@ export class HomeComponent {
   constructor(public ds: DarkmodeserviceService, public c: CalcService) {}
 
 }
+// :)
