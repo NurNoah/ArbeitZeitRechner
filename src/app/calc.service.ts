@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CalcService {
+  constructor() {}
 
-  constructor() { }
+  kommzeitValitext = "";
+
 
   berechne(kommzeit: string, pausezeit: string) {
-
     let splitS: string[];
     let kommzeitSTD: number = 0;
     let kommzeitMIN: number = 0;
@@ -40,7 +41,6 @@ export class CalcService {
       ) {
         labelergebnis.textContent = 'Ungültige Zahl';
       } else {
-        
         let ergebnisSTD: number = kommzeitSTD + 7;
         let ergebnisMIN: number = kommzeitMIN + 42 + pausezeitnum;
 
@@ -63,4 +63,23 @@ export class CalcService {
       this.berechne(kommzeit, pausezeit);
     }
   }
+
+  validateInput(event: KeyboardEvent , inputinhalt:string): void {
+
+    const allowedChars = /[0-9:]/g;
+
+    let kommzeitinput = document.getElementById(
+      'kommzeit'
+    ) as HTMLLabelElement;
+ 
+    this.kommzeitValitext = inputinhalt
+    if((parseInt(inputinhalt) > 2 && parseInt(inputinhalt) < 24 && !inputinhalt.includes(':') && event.key !== 'Backspace') || inputinhalt == "01" || inputinhalt == "02"){
+      this.kommzeitValitext = inputinhalt + ":"
+      console.log("test")
+    }
+
+   
+
+  }
+
 }
