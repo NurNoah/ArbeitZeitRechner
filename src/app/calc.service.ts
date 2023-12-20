@@ -27,10 +27,13 @@ export class CalcService {
     } else {
       kommzeitMIN = parseInt(splitS[1]);
     }
+    if(pausezeit == null || pausezeit == ''){
+      pausezeitnum = 0
+    }else{
     pausezeitnum = parseInt(pausezeit);
-
+    }
     if (isNaN(pausezeitnum) || isNaN(kommzeitSTD) || isNaN(kommzeitMIN)) {
-      labelergebnis.textContent = 'Gebe zahl an';
+      this.showErrorMSG('Gebe zahl an');
     } else {
       if (
         pausezeitnum < 0 ||
@@ -39,7 +42,7 @@ export class CalcService {
         kommzeitSTD > 23 ||
         kommzeitMIN >= 60
       ) {
-        labelergebnis.textContent = 'Ungültige Zahl';
+        this.showErrorMSG('Ungültige Zahl');
       } else {
         let ergebnisSTD: number = kommzeitSTD + 7;
         let ergebnisMIN: number = kommzeitMIN + 42 + pausezeitnum;
@@ -58,13 +61,21 @@ export class CalcService {
     }
   }
 
+  showErrorMSG(msg:string): void{
+    let labelergebnis = document.getElementById(
+      'ergblable'
+    ) as HTMLLabelElement;
+
+    labelergebnis.textContent = msg;
+  }
+
   onKeyUp(event: KeyboardEvent, kommzeit: string, pausezeit: string): void {
     if (event.key == 'Enter') {
       this.berechne(kommzeit, pausezeit);
     }
   }
 
-  validateInput(event: KeyboardEvent , inputinhalt:string): void {
+  validateInput(event: KeyboardEvent , inputinhalt:string, pausenzeit:string): void {
 
     const allowedChars = /[0-9:]/g;
 
@@ -75,11 +86,11 @@ export class CalcService {
     this.kommzeitValitext = inputinhalt
     if((parseInt(inputinhalt) > 2 && parseInt(inputinhalt) < 24 && !inputinhalt.includes(':') && event.key !== 'Backspace') || inputinhalt == "01" || inputinhalt == "02"){
       this.kommzeitValitext = inputinhalt + ":"
-      console.log("test")
+      
     }
-
+    if(pausenzeit !== "")
+    this.berechne(inputinhalt, pausenzeit)
    
-
   }
 
 }

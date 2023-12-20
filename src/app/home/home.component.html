@@ -7,7 +7,7 @@
       #kommzeit
       placeholder="Wann bist du Gekommen  HH:MM"
       value="{{ c.kommzeitValitext }}"
-      (keyup)="c.validateInput($event, kommzeit.value)"
+      (keyup)="c.validateInput($event, kommzeit.value, pausezeit.value)"
       (keyup)="c.onKeyUp($event, kommzeit.value, pausezeit.value)"
     />
 
@@ -16,13 +16,12 @@
       type="text"
       #pausezeit
       placeholder="Pausen Zeit in Minuten"
-      (keyup)="c.onKeyUp($event, kommzeit.value, pausezeit.value)"
+      (keyup)="c.validateInput($event, kommzeit.value, pausezeit.value)"
     />
 
     <button
       id="button1"
       (click)="c.berechne(kommzeit.value, pausezeit.value)"
-      (keyup)="c.onKeyUp($event, kommzeit.value, pausezeit.value)"
     >
       Berechne
     </button>
