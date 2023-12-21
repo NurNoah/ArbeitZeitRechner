@@ -3,7 +3,6 @@ header{
 }
 
 .logo {
-    cursor: pointer;
     height: 70px;
     margin-left: 30px;
     margin-top: 20px;
@@ -19,13 +18,20 @@ header{
  
 }
 
-.right-button {
+.dark-button {
     cursor: pointer;
     height: 40px;
-   
     margin-top: 60px;
     margin-bottom: 15px;
-    float: right; /* Damit der Knopf auf der rechten Seite erscheint */
-    margin-right: 10px; /* Optional: Füge einen Abstand zwischen dem Logo und dem Knopf hinzu */
-    /* Weitere Styling-Attribute nach Bedarf */
+    float: right; 
+    margin-right: 10px; 
+  }
+
+  .settings-button {
+    cursor: pointer;
+    height: 40px;
+    margin-top: 60px;
+    margin-bottom: 15px;
+    float: right; 
+    margin-right: 10px; 
   }

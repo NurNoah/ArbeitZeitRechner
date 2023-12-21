@@ -6,10 +6,12 @@
         ><img routerLink="/home" class="logo" src="assets/img/headericon.png" />
       </a>
       <img
-        class="right-button"
+        class="dark-button"
         src="{{ ds.darkmodeIMG }}"
         (click)="ds.toggleDarkmode()"
       />
-    </div>
+      <img class="settings-button" src="assets/img/settingsIMG.png" (click)="op.openSettingsDialog()">
+        </div>
   </header>
 </body>
+

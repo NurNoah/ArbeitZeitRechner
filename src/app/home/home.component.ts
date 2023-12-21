@@ -3,6 +3,7 @@ import { isEmpty } from 'rxjs';
 import { DarkmodeserviceService } from '../darkmodeservice.service';
 import { CalcService } from '../calc.service';
 import { FormsModule } from '@angular/forms';
+import { SettingsService } from '../settings.service';
 
 @Component({
   selector: 'app-home',
@@ -15,5 +16,6 @@ export class HomeComponent {
 
   constructor(public ds: DarkmodeserviceService, public c: CalcService) {}
 
+ 
 
 }

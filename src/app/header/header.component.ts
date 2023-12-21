@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DarkmodeserviceService } from '../darkmodeservice.service';
+import { SettingsService } from '../settings.service';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,7 @@ import { DarkmodeserviceService } from '../darkmodeservice.service';
 })
 export class HeaderComponent {
 
-  constructor(public ds: DarkmodeserviceService) {}
+  constructor(public ds: DarkmodeserviceService, public op: SettingsService) {}
 
  
 }
