@@ -1,0 +1,57 @@
+.main {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
+
+.light-mode .main{
+    background-color: #fff;
+}
+
+.dark-mode .main{
+    background-color: #212324;
+}
+
+
+.abstand {
+   
+    height: 40px;
+    text-align: center;
+    margin-bottom: 10px;
+
+    width: calc(100% - 10px);
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.light-mode .abstand {
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.dark-mode .abstand {
+    background-color: #3b3b3b;
+    color: #fff;
+    border: 1px solid #555;
+}
+
+
+button {
+    text-align: center;
+    height: 40px;
+    width: 80px;   
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    background-color: #45a049;
+    margin-bottom: 10px;
+    
+}
+
+.text{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+

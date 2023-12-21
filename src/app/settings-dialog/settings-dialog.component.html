@@ -1,3 +1,24 @@
+<body id="bdy3" class="light-mode">
+<div class="main">
 <h2>Einstellungen</h2>
-<!-- Füge hier deine Einstellungsoptionen hinzu -->
-<button mat-button (click)="closeDialog()">Schließen</button>
+<a class="text">wie lang ist deine arbeitszeit</a>
+<input
+class="abstand"
+id="kommzeit"
+type="text"
+#kommzeit
+placeholder="wie lang ist deine arbeitszeit"
+value="{{ c.arbeitszeit(c.arbeitszeitSTD, c.arbeitszeitMIN) }}"
+/>
+
+<a class="text">wann darfst du anfangen</a>
+<input
+class="abstand"
+id="abwann"
+type="text"
+#abwann
+placeholder="wann darfst du anfangen"
+/>
+<button mat-button (click)="closeDialog()">Speichern</button>
+</div>
+</body>

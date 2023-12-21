@@ -14,7 +14,7 @@ import { SettingsService } from '../settings.service';
 
 export class HomeComponent {
 
-  constructor(public ds: DarkmodeserviceService, public c: CalcService) {}
+  constructor(public c: CalcService) {}
 
  
 

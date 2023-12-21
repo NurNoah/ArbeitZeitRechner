@@ -81,7 +81,11 @@ button {
     
 }
 
-button:hover {
+.light-mode button:hover {
+    background-color: #45a049;
+}
+
+.dark-mode button:hover {
     background-color: #45a049;
 }
 

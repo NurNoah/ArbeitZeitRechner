@@ -8,6 +8,16 @@ export class CalcService {
 
   kommzeitValitext = "";
 
+  testka = false
+
+  arbeitszeitSTD:number = 7;
+  arbeitszeitMIN:number = 42;
+
+  arbeitszeit(arbeitszeitSTD:number, arbeitszeitMIN:number){
+
+  return arbeitszeitSTD + ":" + arbeitszeitMIN
+
+  }
 
   berechne(kommzeit: string, pausezeit: string) {
     let splitS: string[];
@@ -77,20 +87,14 @@ export class CalcService {
 
   validateInput(event: KeyboardEvent , inputinhalt:string, pausenzeit:string): void {
 
-    const allowedChars = /[0-9:]/g;
-
-    let kommzeitinput = document.getElementById(
-      'kommzeit'
-    ) as HTMLLabelElement;
- 
     this.kommzeitValitext = inputinhalt
     if((parseInt(inputinhalt) > 2 && parseInt(inputinhalt) < 24 && !inputinhalt.includes(':') && event.key !== 'Backspace') || inputinhalt == "01" || inputinhalt == "02"){
       this.kommzeitValitext = inputinhalt + ":"
       
     }
-    if(pausenzeit !== "")
+    if(pausenzeit !== "" || (this.testka))
     this.berechne(inputinhalt, pausenzeit)
-   
+    this.testka = true
   }
 
 }
