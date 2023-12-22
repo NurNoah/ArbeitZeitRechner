@@ -83,10 +83,14 @@ button {
   background-color: #45a049;
 }
 
-#ergblable {
+label{
   font-size: 20px;
   font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.error #ergblable{
+  color: red;
 }

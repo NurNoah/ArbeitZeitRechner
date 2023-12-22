@@ -14,6 +14,7 @@ export class SettingsService {
     public c: CalcService
   ) {}
   arbeitszeitValitext = '';
+  speichernbutton = 'Speichern';
 
   openSettingsDialog(): void {
     const dialogRef = this.dialog.open(SettingsDialogComponent);
@@ -95,6 +96,7 @@ export class SettingsService {
     }
     if (isNaN(arbeitszeitSTD) || isNaN(arbeitszeitMIN)) {
       meinButton.disabled = true;
+      this.speichernbutton = 'Ungültige Eingabe';
     } else {
       if (
         arbeitszeitSTD < 0 ||
@@ -103,8 +105,10 @@ export class SettingsService {
         arbeitszeitMIN >= 60
       ) {
         meinButton.disabled = true;
+        this.speichernbutton = 'Ungültige Eingabe';
       } else {
         meinButton.disabled = false;
+        this.speichernbutton = 'Speichern';
       }
     }
   }

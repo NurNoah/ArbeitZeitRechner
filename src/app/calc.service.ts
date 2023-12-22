@@ -6,9 +6,9 @@ import { Injectable } from '@angular/core';
 export class CalcService {
   constructor() {}
 
-  logKommZeit:string = "";
+  logKommZeit: string = '';
 
-  logPausZeit:string = "";
+  logPausZeit: string = '';
 
   kommzeitValitext = '';
 
@@ -45,7 +45,7 @@ export class CalcService {
       pausezeitnum = parseInt(pausezeit);
     }
     if (isNaN(pausezeitnum) || isNaN(kommzeitSTD) || isNaN(kommzeitMIN)) {
-      this.showErrorMSG('Gebe zahl an');
+      this.showErrorMSG('Gebe gültige Werte ein');
     } else {
       if (
         pausezeitnum < 0 ||
@@ -68,7 +68,7 @@ export class CalcService {
         if (ergebnisSTD >= 24) {
           ergebnisSTD -= 24;
         }
-
+        labelergebnis.style.color = '';
         labelergebnis.textContent = Math.floor(ergebnisSTD) + ':' + ergebnisMIN;
       }
     }
@@ -79,6 +79,7 @@ export class CalcService {
       'ergblable'
     ) as HTMLLabelElement;
 
+    labelergebnis.style.color = 'red';
     labelergebnis.textContent = msg;
   }
 
@@ -102,8 +103,8 @@ export class CalcService {
         parseInt(kommzeit) < 24 &&
         !kommzeit.includes(':') &&
         event.key !== 'Backspace') ||
-        kommzeit == '01' ||
-        kommzeit == '02'
+      kommzeit == '01' ||
+      kommzeit == '02'
     ) {
       this.kommzeitValitext = kommzeit + ':';
     }
@@ -111,14 +112,11 @@ export class CalcService {
       this.berechne(kommzeit, pausenzeit);
     }
 
-    this.logData(kommzeit, pausenzeit)
-    
+    this.logData(kommzeit, pausenzeit);
   }
 
-
-  logData(kommzeit:string, pausenzeit:string){
-    this.logKommZeit = kommzeit
-    this.logPausZeit = pausenzeit
+  logData(kommzeit: string, pausenzeit: string) {
+    this.logKommZeit = kommzeit;
+    this.logPausZeit = pausenzeit;
   }
-
 }
