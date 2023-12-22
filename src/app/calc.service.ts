@@ -6,17 +6,19 @@ import { Injectable } from '@angular/core';
 export class CalcService {
   constructor() {}
 
-  kommzeitValitext = "";
+  logKommZeit:string = "";
 
-  testka = false
+  logPausZeit:string = "";
 
-  arbeitszeitSTD:number = 7;
-  arbeitszeitMIN:number = 42;
+  kommzeitValitext = '';
 
-  arbeitszeit(arbeitszeitSTD:number, arbeitszeitMIN:number){
+  testka = '';
 
-  return arbeitszeitSTD + ":" + arbeitszeitMIN
+  arbeitszeitSTD: number = 7;
+  arbeitszeitMIN: number = 42;
 
+  arbeitszeit(arbeitszeitSTD: number, arbeitszeitMIN: number) {
+    return arbeitszeitSTD + ':' + arbeitszeitMIN;
   }
 
   berechne(kommzeit: string, pausezeit: string) {
@@ -37,10 +39,10 @@ export class CalcService {
     } else {
       kommzeitMIN = parseInt(splitS[1]);
     }
-    if(pausezeit == null || pausezeit == ''){
-      pausezeitnum = 0
-    }else{
-    pausezeitnum = parseInt(pausezeit);
+    if (pausezeit == null || pausezeit == '') {
+      pausezeitnum = 0;
+    } else {
+      pausezeitnum = parseInt(pausezeit);
     }
     if (isNaN(pausezeitnum) || isNaN(kommzeitSTD) || isNaN(kommzeitMIN)) {
       this.showErrorMSG('Gebe zahl an');
@@ -54,8 +56,9 @@ export class CalcService {
       ) {
         this.showErrorMSG('Ungültige Zahl');
       } else {
-        let ergebnisSTD: number = kommzeitSTD + 7;
-        let ergebnisMIN: number = kommzeitMIN + 42 + pausezeitnum;
+        let ergebnisSTD: number = kommzeitSTD + this.arbeitszeitSTD;
+        let ergebnisMIN: number =
+          kommzeitMIN + this.arbeitszeitMIN + pausezeitnum;
 
         if (ergebnisMIN >= 0) {
           ergebnisSTD += ergebnisMIN / 60;
@@ -71,7 +74,7 @@ export class CalcService {
     }
   }
 
-  showErrorMSG(msg:string): void{
+  showErrorMSG(msg: string): void {
     let labelergebnis = document.getElementById(
       'ergblable'
     ) as HTMLLabelElement;
@@ -85,16 +88,37 @@ export class CalcService {
     }
   }
 
-  validateInput(event: KeyboardEvent , inputinhalt:string, pausenzeit:string): void {
+  validateInput(
+    event: KeyboardEvent,
+    kommzeit: string,
+    pausenzeit: string
+  ): void {
+    //workarounds
+    this.testka += pausenzeit;
+    this.kommzeitValitext = kommzeit;
 
-    this.kommzeitValitext = inputinhalt
-    if((parseInt(inputinhalt) > 2 && parseInt(inputinhalt) < 24 && !inputinhalt.includes(':') && event.key !== 'Backspace') || inputinhalt == "01" || inputinhalt == "02"){
-      this.kommzeitValitext = inputinhalt + ":"
-      
+    if (
+      (parseInt(kommzeit) > 2 &&
+        parseInt(kommzeit) < 24 &&
+        !kommzeit.includes(':') &&
+        event.key !== 'Backspace') ||
+        kommzeit == '01' ||
+        kommzeit == '02'
+    ) {
+      this.kommzeitValitext = kommzeit + ':';
     }
-    if(pausenzeit !== "" || (this.testka))
-    this.berechne(inputinhalt, pausenzeit)
-    this.testka = true
+    if (pausenzeit !== '' || this.testka !== '') {
+      this.berechne(kommzeit, pausenzeit);
+    }
+
+    this.logData(kommzeit, pausenzeit)
+    
+  }
+
+
+  logData(kommzeit:string, pausenzeit:string){
+    this.logKommZeit = kommzeit
+    this.logPausZeit = pausenzeit
   }
 
 }
