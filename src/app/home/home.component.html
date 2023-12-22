@@ -1,14 +1,23 @@
-<body id="bdy" class="light-mode" >
-    
-<div class="main">
-<input class="abstand" type="text" #kommzeit placeholder="Wann bist du Gekommen  HH:MM" (keyup)="c.onKeyUp($event, kommzeit.value, pausezeit.value)">
+<body id="bdy" class="light-mode">
 
-<input class="abstand" type="text" #pausezeit placeholder="Pausen Zeit in Minuten" (keyup)="c.onKeyUp($event, kommzeit.value, pausezeit.value)" >
+    <div class="main">
 
-<button id="button1" (click)="c.berechne(kommzeit.value, pausezeit.value)" (keyup)="c.onKeyUp($event, kommzeit.value, pausezeit.value)">Berechne</button>
 
-<label id="ergblable" class="abstand"></label>
+        <a class="text">
+            Wann bist du Gekommen?
+        </a>
 
-</div>
+        <input class="abstand" type="text" #kommzeit placeholder="Wann bist du Gekommen  HH:MM"
+            (keyup)="c.onKeyUp($event, kommzeit.value, pausezeit.value)" [ngxTimepicker]="fullTime" [format]="24" readonly>
+            <ngx-material-timepicker #fullTime></ngx-material-timepicker>
 
+        <input class="abstand" type="text" #pausezeit placeholder="Pausen Zeit in Minuten"
+            (keyup)="c.onKeyUp($event, kommzeit.value, pausezeit.value)">
+
+        <button id="button1" (click)="c.berechne(kommzeit.value, pausezeit.value)"
+            (keyup)="c.onKeyUp($event, kommzeit.value, pausezeit.value)">Berechne</button>
+
+        <label id="ergblable" class="abstand"></label>
+
+    </div>
 </body>
