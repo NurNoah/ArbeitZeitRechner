@@ -10,7 +10,6 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TuiInputTimeModule } from '@taiga-ui/kit';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 @NgModule({
@@ -29,7 +28,6 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     TuiAlertModule,
     FormsModule,
     ReactiveFormsModule,
-    TuiInputTimeModule,
     NgxMaterialTimepickerModule
   ],
   providers: [{ provide: TUI_SANITIZER, useClass: NgDompurifySanitizer }],
