@@ -1,33 +1,53 @@
 <body id="bdy3" class="light-mode">
-<div class="main">
-<h2>Einstellungen</h2>
-<a class="text">Wie lang ist deine Arbeitszeit</a>
+  <div class="main">
+    <h2>Einstellungen</h2>
+    <a class="text">Wie lang ist deine Arbeitszeit</a>
 
-<div class="test">
-<input
-class="abstand"
-id="arbeitszeit"
-type="text"
-#arbeitszeit
-placeholder="Wie lang ist deine Arbeitszeit"
-(keyup)="op.valiSave(arbeitszeit.value)"
-value="{{ c.arbeitszeit(c.arbeitszeitSTD, c.arbeitszeitMIN) }}"
-/>
-<button type="button" class="XButton"  (click)="op.deletvalue()" (click)="op.valiSave(arbeitszeit.value)"><img class="img" src="assets/img/trashblack.png"></button>
-</div>
+    <div class="test">
+      <input
+        class="abstand"
+        id="arbeitszeit"
+        type="text"
+        #arbeitszeit
+        placeholder="Wie lang ist deine Arbeitszeit"
+        (keyup)="op.valiSave(arbeitszeit.value)"
+        value="{{ c.arbeitszeit(c.arbeitszeitSTD, c.arbeitszeitMIN) }}"
+      />
+      <button
+        type="button"
+        class="XButton"
+        (click)="op.deletvalue()"
+        (click)="op.valiSave(arbeitszeit.value)"
+      >
+        <img class="img" src="assets/img/trashblack.png" />
+      </button>
+    </div>
 
-<a class="text">Coming soon</a>
-<input
-class="abstand"
-id="abwann"
-type="text"
-#abwann
-placeholder="Coming soon"
-/>
+    <a class="text">Coming soon</a>
+    <input
+      class="abstand"
+      id="abwann"
+      type="text"
+      #abwann
+      placeholder="Coming soon"
+    />
 
-<div class="actionbuttons">
-<button class="resetbutton" id="resetbutton" (click)="op.reset()" (click)="op.valiSave(arbeitszeit.value)"><img class="img2" src="assets/img/resetblack.png"></button>
-<button class="savebutton" id="savebutton"  (click)="closeDialog(arbeitszeit.value)" >Speichern</button>
-</div>
-</div>
+    <div class="actionbuttons">
+      <button
+        class="resetbutton"
+        id="resetbutton"
+        (click)="op.reset()"
+        (click)="op.valiSave(arbeitszeit.value)"
+      >
+        <img class="img2" src="assets/img/resetblack.png" />
+      </button>
+      <button
+        class="savebutton"
+        id="savebutton"
+        (click)="closeDialog(arbeitszeit.value)"
+      >
+        Speichern
+      </button>
+    </div>
+  </div>
 </body>

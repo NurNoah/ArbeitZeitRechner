@@ -20,7 +20,7 @@ export class SettingsDialogComponent {
   arbeitszeitValitext = '';
 
   closeDialog(arbeitszeit: string): void {
-    this.op.onSave(arbeitszeit)
+    this.op.onSave(arbeitszeit);
 
     this.dialogRef.close();
   }

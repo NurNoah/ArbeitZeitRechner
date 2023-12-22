@@ -8,8 +8,12 @@ import { CalcService } from './calc.service';
   providedIn: 'root',
 })
 export class SettingsService {
-  constructor(private dialog: MatDialog, public ds: DarkmodeserviceService, public c: CalcService) {}
-  arbeitszeitValitext = "";
+  constructor(
+    private dialog: MatDialog,
+    public ds: DarkmodeserviceService,
+    public c: CalcService
+  ) {}
+  arbeitszeitValitext = '';
 
   openSettingsDialog(): void {
     const dialogRef = this.dialog.open(SettingsDialogComponent);
@@ -25,7 +29,7 @@ export class SettingsService {
   }
 
   validateInput(event: KeyboardEvent, inputinhalt: string): void {
-   this.arbeitszeitValitext = inputinhalt;
+    this.arbeitszeitValitext = inputinhalt;
     if (
       (parseInt(inputinhalt) > 2 &&
         parseInt(inputinhalt) < 24 &&
@@ -38,7 +42,7 @@ export class SettingsService {
     }
   }
 
-  onSave(arbeitszeit:string){
+  onSave(arbeitszeit: string) {
     let splitS: string[];
 
     splitS = arbeitszeit.split(':');
@@ -63,15 +67,13 @@ export class SettingsService {
     }
   }
 
-  reset(){
-
+  reset() {
     const inputElement = <HTMLInputElement>(
       document.getElementById('arbeitszeit')
     );
     if (inputElement) {
       inputElement.value = '7:42';
     }
-
   }
 
   valiSave(arbeitszeit: string) {
@@ -81,7 +83,6 @@ export class SettingsService {
     let arbeitszeitMIN = 0;
     let arbeitszeitSTD = 0;
     let splitS: string[];
-
 
     splitS = arbeitszeit.split(':');
 
@@ -107,5 +108,4 @@ export class SettingsService {
       }
     }
   }
-
 }
