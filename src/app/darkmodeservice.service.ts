@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class DarkmodeserviceService {
   darkmodeIMG = 'assets/img/nightmode.png';
+  settingIMG = "assets/img/SettingsIconblack.png"
 
   isDarkmode = false;
 
@@ -29,8 +30,10 @@ export class DarkmodeserviceService {
   toggledarkmodeimg() {
     if (this.darkmodeIMG == 'assets/img/nightmode.png') {
       this.darkmodeIMG = 'assets/img/lightmode.png';
+      this.settingIMG = "assets/img/SettingsIconblackwhite.png"
     } else {
       this.darkmodeIMG = 'assets/img/nightmode.png';
+      this.settingIMG = "assets/img/SettingsIconblack.png"
     }
   }
 }
